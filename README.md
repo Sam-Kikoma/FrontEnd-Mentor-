@@ -1,2 +1,2 @@
-# HTML-CSS-practice
-Collection of practice projects
+# FrontEnd Mentor
+Collection of projects from FrontEnd Mentor
