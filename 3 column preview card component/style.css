@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    --Bright-orange: hsl(31, 77%, 52%);
+    --Dark-cyan: hsl(184, 100%, 22%);
+    --Very-dark-cyan: hsl(179, 100%, 13%);
+    --Transparent-White: hsla(0, 0%, 100%, 0.75);/*paragraphs*/
+    --Very-light-gray: hsl(0, 0%, 95%);/*background, headings, buttons*/
+    font-size: 62.5%;
+}
+
+main{
+    background: var(--Very-light-gray);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+.card1{
+    background: var(--Bright-orange);
+    padding: 4rem;
+    max-width: 30rem;
+    border-radius: 1rem 0 0 1rem;
+}
+
+.card2{
+    background: var(--Dark-cyan);
+    padding: 4rem;
+    max-width: 30rem;
+}
+
+.card3{
+    background: var(--Very-dark-cyan);
+    padding: 4rem;
+    max-width: 30rem;
+    border-radius: 0 1rem 1rem 0;
+}
+
+h1{
+    margin: 3rem 0 2rem 0;
+    font-family: 'Big Shoulders Display', cursive;
+    color: var(--Very-light-gray);
+    font-size: 4rem;
+}
+
+p{
+    margin: 2rem 0 3rem 0;
+    line-height: 1.7;
+    color: var(--Transparent-White); 
+    font-size: 1.5rem;
+}
+
+button{
+    border-radius: 3rem;
+    padding: 1.5rem ;
+    border-style: none;
+    margin: 3rem 0 2rem 0;
+    font-family: 'Lexend Deca', sans-serif;
+    background: var(--Very-light-gray);
+}
+button:hover{
+    border-style: solid;
+    border-color: var(--Very-light-gray);
+ 
+}
+
+.card1 button{
+    color: var(--Bright-orange);
+}
+.card1 button:hover{
+    background: var(--Bright-orange);
+    color: var(--Very-light-gray);
+}
+
+.card2 button{
+    color: var(--Dark-cyan);
+}
+.card2 button:hover{
+    background: var(--Dark-cyan);
+    color: var(--Very-light-gray);
+}
+
+.card3 button{
+    color: var(--Very-dark-cyan);
+
+}
+.card3 button:hover{
+    background: var(--Very-dark-cyan);
+    color: var(--Very-light-gray);
+}
+/* Media Queries */
+@media only screen and (max-width: 840px){
+    main{
+        display: flex;
+        flex-direction: column;
+    }
+    .card1{
+        border-radius: 1rem 1rem 0 0;
+        margin-top: 10rem
+    }
+    .card3{
+        border-radius: 0 0 1rem 1rem;
+        margin-bottom: 10rem;
+    }
+}
