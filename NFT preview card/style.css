@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    --soft-blue: hsl(215, 51%, 70%);
+    --cyan: hsl(178, 100%, 50%);
+    --main-bg:hsl(217, 54%, 11%);
+    --card-bg:hsl(216, 50%, 16%);
+    --line: hsl(215, 32%, 27%);
+    font-family: 'Outfit', sans-serif;
+}
+
+main{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--main-bg);
+}
+
+.card-body{
+    max-width: 35rem;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1.5rem;
+}
+
+.nft{
+    width: 100%;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+h1{
+    color: white;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+p{
+    font-size: 1.8rem;
+    color: var(--soft-blue);
+    margin-bottom: 1rem;
+}
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+span{
+    font-size: 1.4rem;
+}
+
+.eth{
+    color: var(--cyan);
+}
+
+.time{
+    color: var(--soft-blue);
+}
+
+svg{
+    margin-right: 1rem;
+}
+
+hr{
+    height: 1px;
+    background-color: var(--line);
+    border: none;
+    margin-bottom: 1rem;
+}
+.text-container{
+    display: flex;
+    height: 3rem;
+}
+.avatar{
+    width: 3rem;
+    height: auto;
+    margin-right: 1.5rem;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.profile, .profile-name{
+    margin-top: .5rem;
+    font-size: 1.5rem;
+}
+
+.profile-name{
+    color: white;
+}
+.image{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+/* Active States */
+.profile-name:hover{
+    cursor: pointer;
+    color: var(--cyan);
+}
+h1:hover{
+    cursor: pointer;
+    color: var(--cyan);
+}
+.image-overlay{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    margin: auto;
+    background-color: var(--cyan);
+    width: 100%;
+    height: 96%;
+    opacity: 0;
+    border-radius: 1rem;
+}
+
+.image-overlay:hover{
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.3s all ease-in;
+}
