@@ -1,0 +1,156 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+:root{
+    --Orange: hsl(25, 97%, 53%);
+    --White: hsl(0, 0%, 100%);
+    --Light-Grey: hsl(217, 12%, 63%);
+    --Medium-Grey: hsl(216, 12%, 54%);
+    --Dark-Blue: hsl(213, 19%, 18%);
+    --Very-Dark-Blue: hsl(216, 12%, 8%);
+}
+/* CSS Reset */
+html{
+    font-size: 62.5%;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    font-family: 'Overpass', sans-serif;
+    width: 100%;
+    height: 100vh;
+    background: var(--Very-Dark-Blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.component{
+    background-color: var(--Dark-Blue);
+    padding: 3rem;
+    width: 38rem;
+    border-radius: 1.5rem;
+}
+
+.star{
+    background-color: var(--Medium-Grey);
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text h1{
+    color: white;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+}
+
+.text p{
+    color: var(--Medium-Grey);
+    margin-bottom: 2.5rem;
+}
+
+.rating ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+}
+
+.rating ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--Medium-Grey);
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+}
+
+.rating ul li:hover{
+    background-color: var(--Orange);
+    
+}
+
+.action{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.action button{
+    width: 38rem;
+    background-color:var(--Orange) ;
+    border: none;
+    height: 4rem;
+    border-radius: 3rem;
+    color: white;
+    padding: 0.5rem 0 0.5rem 0;
+    cursor: pointer;
+ }
+
+.action button:hover{
+    background-color: white;
+    color: var(--Orange);
+}
+
+.hide{
+    display: none;
+}
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feedback{
+    background-color: var(--Dark-Blue);
+    padding: 3rem;
+    width: 38rem;
+    border-radius: 1.5rem;
+}
+
+.phone{
+    margin-bottom: 2rem;
+}
+
+.selection{
+    margin-bottom: 2rem;
+    background-color: var(--Medium-Grey);
+    padding: 1rem;
+    color: var(--Orange);
+    border-radius: 2rem;
+}
+
+.feedback-text{
+    margin: 2rem 0 0 0;
+    text-align: center;
+}
+.feedback-text h1{
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.feedback-text p{
+    margin-bottom: 1.5rem;
+    color: var(--Medium-Grey);
+}
+/* Media Queries */
+@media only screen and (max-width: 450px){
+    .component{
+        width: 30rem;
+    }
+    .feedback{
+        width: 30rem;
+    }
+}
