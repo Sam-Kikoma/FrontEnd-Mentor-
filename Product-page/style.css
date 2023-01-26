@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+
+html{
+    --Orange: hsl(26, 100%, 55%);
+    --Pale-orange: hsl(25, 100%, 94%);
+    --Very-dark-blue: hsl(220, 13%, 13%);
+    --Dark-grayish-blue: hsl(219, 9%, 45%);
+    --Grayish-blue: hsl(220, 14%, 75%);
+    --Light-grayish-blue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Kumbh Sans', sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 10% 90%;
+    grid-template-areas: 
+    "nav nav"
+    "side-a side-b";
+}
+
+/* Nav styling */
+nav{
+    grid-area: nav;
+    justify-content: space-between;
+    padding: 1rem 5rem;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    display: inline;
+}
+
+a{
+    text-decoration: none;
+}
+
+.cart-icon{
+    height: 50px;
+}
+
+.cart-icon svg{ 
+    margin-top: 15px
+}
+
+.avatar{
+    height: 50px;
+    margin-left: 1.5rem;
+}
+.avatar img{
+    max-width: 45px;
+    height: auto;
+}
+/* Image side styling */
+.image-side{
+    grid-area: side-a;
+}
+
+/* Descripton side styling */
+.info-side{
+    grid-area: side-b;
+}
+
+/* Helper class */
+.flex{
+    display: flex;
+}
