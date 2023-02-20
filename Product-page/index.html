@@ -5,11 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>Frontend Mentor | E-commerce product page</title>
 </head>
 <body>
     <nav class="flex">
+        <div class="hamburger-wrapper">
+            <i class="fa-solid fa-bars"></i>
+        </div>
         <div class="nav-text flex">
             <img src="./images/logo.svg" alt="" id="logo">
             <ul>
@@ -44,23 +48,24 @@
         </div>
     </section>
 
-    <section class="info-side">
+    <section class="info-side flex">
         <div class="text">
-            <h2>Sneakers Company</h2>
-            <h3>Fall Limited Edition Sneakers</h3>
-            <p>Collections Men Women About Contact Sneaker Company Fall Limited Edition Sneakers These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+            <h2>Sneaker Company</h2>
+            <h3>Fall Limited Edition<br>Sneakers</h3>
+            <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
         </div>
         <div class="price">
             <p id="offer-price">$125.00 <span id="discount">50%</span> </p>
             <span id="og-price">$250</span>
         </div>
-        <div class="buttons">
+        <div class="buttons flex">
             <button>-</button>
-            <span>0</span>
-            <button>+</button>
-            <button>Add to cart</button>
+            <input type="number" placeholder="0"></input>
+            <button >+</button>
+            <button id="cart"> <i class="fa-solid fa-cart-shopping"></i> Add to cart</button>
         </div>
     </section>
+
     <script src="app.js"></script>
 </body>
 </html>
