@@ -8,6 +8,8 @@ const timezone = document.querySelector("#timezone");
 const isp = document.querySelector("#isp");
 let searchInput;
 let map;
+results.style.display = "none";
+
 
 form.addEventListener("submit", function(e){
     submitForm(e);
@@ -17,9 +19,9 @@ async function submitForm(e){
     e.preventDefault();
     searchInput = document.querySelector("#searchInput").value;
     const data = await search();
-    results.innerHTML = "";
     dataRender(data);
     mapRender(data);
+    results.style.display = "flex";
 }
 async function search(){
     const apiKey = "at_5Ym4HuBVs6zoKaGbMv3tsuQYWtRRk";
@@ -50,6 +52,6 @@ function mapRender(data){
     }).addTo(map);
     
     L.marker([lat, long]).addTo(map)
-        .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+        .bindPopup('You are here.')
         .openPopup();    
 }
