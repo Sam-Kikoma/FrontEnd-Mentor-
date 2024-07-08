@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,4 +10,34 @@
   --Light-Grayish-Cyan-Filter: hsl(180, 31%, 95%);
   --Dark-Grayish-Cyan: hsl(180, 8%, 52%);
   --Very-Dark-Grayish-Cyan: hsl(180, 14%, 20%);
+}
+
+@layer base{
+  *{
+    @apply font-custom text-[15px];
+  }
+  .flex-col-center{
+    @apply flex flex-col justify-center;
+  }
+  .flex-row-space{
+    @apply flex flex-row justify-between items-center;
+  }
+  .options{
+    @apply rounded-xl p-1 md:p-[6px] text-white uppercase font-bold;
+  }
+  .boolean-span{
+    @apply bg-[--Primary-Dark-Cyan] ;
+  }
+  .featured-span{
+    @apply bg-[--Very-Dark-Grayish-Cyan] ;
+  }
+  .filter-tablets{
+    @apply bg-[--Light-Grayish-Cyan] p-1 text-[--Primary-Dark-Cyan] rounded-sm font-bold cursor-pointer;
+  }
+  .details{
+    @apply text-[--Dark-Grayish-Cyan];
+  }
+  li{
+    @apply inline-block;
+  }
 }
