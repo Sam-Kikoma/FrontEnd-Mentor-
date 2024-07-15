@@ -10,8 +10,8 @@ const App = () => {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/users");
-      setData(res.data);
+      const res = await axios.get("https://api.jsonbin.io/v3/b/669586a2e41b4d34e412609c");
+      setData(res.data.record.users);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
