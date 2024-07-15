@@ -1,11 +1,13 @@
 import Item from "./components/Item";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import FilterList from "./components/FilterList";
 
 const App = () => {
   const [data, setData] = useState([]);
-  const [filter, setFilter]  = useState([])
-  const [filteredData, setFilteredData] = useState([])
+  const [filter, setFilter] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+
   const fetchData = async () => {
     try {
       const res = await axios.get("http://localhost:3001/users");
@@ -14,36 +16,72 @@ const App = () => {
       console.error("Error fetching data:", error);
     }
   };
-  const handleFilter = (filter) => {
+
+  const handleFilter = (newFilter) => {
     setFilter((prevFilters) => {
-      if (!prevFilters.includes(filter)) {
-        return [...prevFilters, filter];
+      if (!prevFilters.includes(newFilter)) {
+        return [...prevFilters, newFilter];
       }
       return prevFilters;
     });
+
     const newData = data.filter((item) => {
       return (
-        (item.languages && item.languages.includes(filter)) || (item.role&&item.role.includes(filter)) || (item.level&&item.level.includes(filter))
-        || (item.tools && item.tools.includes(filter))
+        (item.languages && item.languages.includes(newFilter)) || 
+        (item.role && item.role.includes(newFilter)) || 
+        (item.level && item.level.includes(newFilter)) || 
+        (item.tools && item.tools.includes(newFilter))
       );
     });
-  
-    setFilteredData((prevFilteredData) => [...prevFilteredData, ...newData]);
+
+    setFilteredData((prevFilteredData) => {
+      const uniqueNewData = newData.filter(newItem => 
+        !prevFilteredData.some(filteredItem => filteredItem.id === newItem.id)
+      );
+      return [...prevFilteredData, ...uniqueNewData];
+    });
+  };
+
+  // Remove all filters
+  const clearFilter = () => {
+    setFilter([]);
+    setFilteredData([]);
+  };
+
+  // Remove individual filter
+  const removeSelected = (selectedFilter) => {
+    const newFilters = filter.filter(item => item !== selectedFilter);
+    setFilter(newFilters);
+
+    const newFilteredData = data.filter((item) => {
+      return newFilters.every(filter => (
+        (item.languages && item.languages.includes(filter)) || 
+        (item.role && item.role.includes(filter)) || 
+        (item.level && item.level.includes(filter)) || 
+        (item.tools && item.tools.includes(filter))
+      ));
+    });
+
+    setFilteredData(newFilteredData);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    console.log("Applied filters:", filter);
+  }, [filter]);
+
   return (
     <>
       <div className="w-full h-full bg-[--Light-Grayish-Cyan]">
-        <div className="w-auto h-[156px] bg- bg-[--Primary-Dark-Cyan] bg-[url('./assets/bg-header-mobile.svg')] md:bg-[url('./assets/bg-header-desktop.svg')] mb-20"></div>
-        {data.length > 0 ? (
-          data.map((item) => <Item data={item} key={item.id} handleFilter={handleFilter}/>)
-        ) : (
-          <p>No data available</p>
-        )}
+        <div className="w-auto h-[156px] bg-[--Primary-Dark-Cyan] bg-[url('./assets/bg-header-mobile.svg')] md:bg-[url('./assets/bg-header-desktop.svg')] mb-20"></div>
+        {filter.length > 0 ? <FilterList filter={filter} clearFilter={clearFilter} removeSelected={removeSelected} /> : null}
+        {filteredData.length > 0 ? 
+          filteredData.map((item) => <Item data={item} key={item.id} handleFilter={handleFilter}/>) : 
+          data.map((item) => <Item data={item} key={item.id} handleFilter={handleFilter} clearFilter={clearFilter}/>)
+        }
       </div>
     </>
   );

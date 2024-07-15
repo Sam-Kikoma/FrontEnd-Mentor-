@@ -7,7 +7,6 @@ const Item = ({data,handleFilter}) => {
   }
   const handleClick = (e) => {
     handleFilter(e.target.innerText)
-    console.log(e.target.innerText);
   }
   
   return (
